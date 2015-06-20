@@ -6,3 +6,6 @@
   (if channel
     {:msg (post-controller/get-top-ten (:channel_id channel)) :channel (:channel_name channel)}
     {:msg "Token is not authorized" :channel nil}))
+
+(defn- format-msg [msg]
+  (str msg))

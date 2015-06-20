@@ -10,7 +10,7 @@
    :subname     "db/test.db"})
 
 (defn- sql-get-top-ten [channel-id]
-  ["SELECT v.post_id, SUM(v.vote_type), p.body 
+  ["SELECT v.post_id as post_id, SUM(v.vote_type) as point, p.body as body 
     FROM votes v 
     INNER JOIN posts p ON v.post_id=p.post_id 
     WHERE v.post_id IN 
