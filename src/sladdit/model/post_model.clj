@@ -9,7 +9,7 @@
    :subprotocol "sqlite"
    :subname     "db/test.db"})
 
-(defn- sql-get-top-ten [channel_id]
+(defn- sql-get-top-ten [channel-id]
   ["SELECT v.post_id, SUM(v.vote_type), p.body 
     FROM votes v 
     INNER JOIN posts p ON v.post_id=p.post_id 
@@ -19,10 +19,10 @@
         WHERE channel_id=?) 
     GROUP BY v.post_id 
     ORDER BY SUM(v.vote_type) 
-    LIMIT 10", channel_id])
+    LIMIT 10", channel-id])
 
-(defn get-top-ten []
-  (jdbc/query db-spec (sql-get-top-ten)))
+(defn get-top-ten [channel-id]
+  (jdbc/query db-spec (sql-get-top-ten channel-id)))
 
 (defn insert [channel-id submitter body timestamp]
   (jdbc/insert! db-spec :posts {:channel_id channel-id :submitter submitter :body body :submitted_time timestamp}))
