@@ -10,8 +10,8 @@
             [sladdit.controller.channel-controller :as channel]))
 
 (defn- handle-command [args username channel]
-    (let [command (first (str/split args " "))
-          args (subvec (str/split args " ") 1)]
+    (let [command (first (str/split args #" "))
+          args (subvec (str/split args #" ") 1)]
         (if (= command "list")
             (list/handle channel args username)
             (if (= command "submit")
