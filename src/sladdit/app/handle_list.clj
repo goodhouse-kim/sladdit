@@ -4,5 +4,5 @@
 
 (defn handle [channel args username]
   (if channel
-    (post-controller/get-top-ten)
-    "Token is not authorized"))
+    {:msg (post-controller/get-top-ten) :channel (:channel_name channel)}
+    {:msg "Token is not authorized" :channel nil}))

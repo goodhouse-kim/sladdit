@@ -1,5 +1,6 @@
 CREATE TABLE channels (
     channel_id  INTEGER  PRIMARY KEY,
+    channel_name  TEXT  NOT NULL,
     token  TEXT  NOT NULL,
     webhook_url  TEXT  NOT NULL
 );
