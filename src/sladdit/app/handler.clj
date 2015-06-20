@@ -28,6 +28,7 @@
              talk)))
 
 (defroutes app-routes
+  (GET "/" [] "hello world!")
   (GET "/sladdit-slash-command" [] slash-command)
   (route/not-found "Not Found"))
 
